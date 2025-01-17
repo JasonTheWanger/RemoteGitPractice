@@ -3,9 +3,10 @@ import java.lang.reflect.AnnotatedArrayType;
 import java.util.*;
 public class Deck {
     private final List<Flashcard> flashcards;
-
+    private final int size;
     public Deck(List<Flashcard> flashcards){
         this.flashcards = List.copyOf(flashcards);
+        size = flashcards.size();
     }
 
     public Flashcard top(){
@@ -28,5 +29,9 @@ public class Deck {
         var cards = new ArrayList<>(deck.flashcards);
         Collections.shuffle(cards);
         return new Deck(cards);
+    }
+
+    public int size(){
+        return this.size;
     }
 }
